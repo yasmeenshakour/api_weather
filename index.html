@@ -59,12 +59,12 @@
     	// You will need to update this query with the city, weather format (Celsius or Fahrenheit) and your OpenWeatherMap ID
 
     	// Right now I have it set to Chicago.  The default should be Ann Abor/Fahreheit.
-		let query = "http://api.openweathermap.org/data/2.5/weather?q=" + loc + "&APPID=" + YourWeatherAppID +"&units=" + unit;
+		let query = "https://api.openweathermap.org/data/2.5/weather?q=" + loc + "&APPID=" + YourWeatherAppID +"&units=" + unit;
         console.log("Query is :" + query)
 
         $.getJSON(query,function(json){
             console.log(JSON.stringify(json));
-		$('#tempImg').attr('src', "http://openweathermap.org/img/wn/" + json.weather[0]['icon'] + '.png');
+		$('#tempImg').attr('src', "https://openweathermap.org/img/wn/" + json.weather[0]['icon'] + '.png');
 		$("#loc").html(json.name);
 		$("#temp").html(json["main"].temp);
 		$("#high").html(json["main"].temp_max);
