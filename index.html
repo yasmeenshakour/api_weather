@@ -33,27 +33,25 @@
     	//  the low temperature for the day
     	//  the icon for the current weather.
 
+	var YourWeatherAppID = "26633b43728c8228f84de6936edd79e7"
+	var loc = $("#location");
+	var cel = $("#celcius");
+        var fahr = $("fahrenheit");
+	var units;
 
-			var YourWeatherAppID = "26633b43728c8228f84de6936edd79e7"
-			var loc = $("#location");
-			var cel = $("#celcius");
-			var fahr = 	$("fahrenheit");
-
-			var units;
-
-			if ((loc.val().length) == 0) {
+	if ((loc.val().length) == 0) {
           loc = "Ann+Arbor";
         }
-      else {
+      	else {
           loc = loc.val();
         }
-			if ((cel.is(":checked"))){
+	if ((cel.is(":checked"))){
           unit = cel.val();
         }
-			if ((fahr.is(":checked"))){
+	if ((fahr.is(":checked"))){
           unit = fahr.val();
         }
-      else {
+        else {
           unit = "imperial";
         }
 
@@ -66,13 +64,12 @@
 
         $.getJSON(query,function(json){
             console.log(JSON.stringify(json));
-
-					 $('#tempImg').attr('src', "http://openweathermap.org/img/wn/" + json.weather[0]['icon'] + '.png');
-					 $("#loc").html(json.name);
-					 $("#temp").html(json["main"].temp);
-					 $("#high").html(json["main"].temp_max);
-					 $("#low").html(json["main"].temp_min);
-					 $("#forecast").css("display", "block");
+		$('#tempImg').attr('src', "http://openweathermap.org/img/wn/" + json.weather[0]['icon'] + '.png');
+		$("#loc").html(json.name);
+		$("#temp").html(json["main"].temp);
+		$("#high").html(json["main"].temp_max);
+		$("#low").html(json["main"].temp_min);
+		$("#forecast").css("display", "block");
     })
     }
     </script>
